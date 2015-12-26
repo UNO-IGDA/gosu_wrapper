@@ -1,0 +1,3 @@
+[submodule "lib/gosu-examples"]
+	path = lib/gosu-examples
+	url = git@github.com:gosu/gosu-examples.git
