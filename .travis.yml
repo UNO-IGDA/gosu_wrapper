@@ -19,4 +19,12 @@ before_install:
   - ../configure
   - make
   - sudo make install
+  - cd ../..
+  - hg clone https://hg.libsdl.org/SDL_ttf SDL_ttf
+  - cd SDL_ttf
+  - mkdir build
+  - cd build
+  - ../configure
+  - make
+  - sudo make install
   - gem install bundler -v 1.11.2
