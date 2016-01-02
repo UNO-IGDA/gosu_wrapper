@@ -6,7 +6,4 @@ git:
   submodules: false
 sudo: required
 dist: trusty
-before_install:
-  - ./bin/travis/setup/git/submodules
-  - ./bin/travis/setup/gosu/dependencies
-  - gem install bundler -v 1.11.2
+before_install: ./bin/travis/before_install
