@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'activemodel', '>= 4.0'
   spec.add_runtime_dependency 'activesupport', '>= 4.0'
-  spec.add_runtime_dependency 'gosu', '0.7.50'
+  spec.add_runtime_dependency 'gosu', '>= 0.9'
 
   spec.add_development_dependency 'bundler', '~> 1.11'
   spec.add_development_dependency 'rake', '~> 10.0'
