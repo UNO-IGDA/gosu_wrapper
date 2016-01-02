@@ -5,6 +5,7 @@ rvm:
 git:
   submodules: false
 sudo: required
+dist: trusty
 before_install:
   # Use sed to replace the SSH URL with the public URL,
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
