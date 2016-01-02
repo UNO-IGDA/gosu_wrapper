@@ -1,2 +1,11 @@
-# Ignore bundler config
-/.bundle
+# gem development directories/files
+/.bundle/
+/.yardoc
+/Gemfile.lock
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/examples.txt
+/spec/reports/
+/tmp/
