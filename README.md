@@ -1,4 +1,5 @@
-# Gosu Wrapper
+# Gosu Wrapper [![Build Status](https://travis-ci.org/UNO-IGDA/gosu_wrapper.svg)](https://travis-ci.org/UNO-IGDA/gosu_wrapper)
+
 A wrapper library for Gosu (Ruby version), adding new functionality.
 In this directory, you'll find the files needed to be able to package up
 `GosuWrapper` into a gem. Put Ruby code in the file `lib/gosu_wrapper`.
