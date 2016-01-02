@@ -1,4 +1,11 @@
 language: ruby
 rvm:
   - 2.3.0
-before_install: gem install bundler -v 1.11.2
+# Handle git submodules yourself
+git:
+    submodules: false
+# Use sed to replace the SSH URL with the public URL, then initialize submodules
+before_install:
+    - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+    - git submodule update --init --recursive
+    - gem install bundler -v 1.11.2
