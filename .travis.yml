@@ -1,9 +1,9 @@
+before_install: ./bin/travis/before_install
+dist: trusty
+git:
+  # Handle git submodules yourself
+  submodules: false
 language: ruby
 rvm:
   - 2.3.0
-# Handle git submodules yourself
-git:
-  submodules: false
 sudo: required
-dist: trusty
-before_install: ./bin/travis/before_install
