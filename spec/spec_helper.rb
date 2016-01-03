@@ -1,3 +1,5 @@
+require 'support/simplecov'
+
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
