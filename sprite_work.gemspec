@@ -28,7 +28,9 @@ Gem::Specification.new do |spec|
   end
 
   spec.bindir = 'bin'
-  spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.executables = spec.files.grep(%r{^bin/[^/]*$}) do |f|
+    File.basename(f)
+  end
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'activemodel', '>= 4.0'
