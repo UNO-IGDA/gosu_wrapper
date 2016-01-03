@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'gosu_wrapper/version'
+require 'sprite_work/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'gosu_wrapper'
-  spec.version = GosuWrapper::VERSION
+  spec.name = 'sprite_work'
+  spec.version = SpriteWork::VERSION
   spec.authors = ['Kyle Whittington']
   spec.email = ['kyle.thomas.whittington@gmail.com']
 
   spec.summary = 'A wrapper for the Gosu Ruby library'
   spec.description = 'A wrapper for the Gosu Ruby library'
-  spec.homepage = 'https://github.com/UNO-IGDA/gosu_wrapper'
+  spec.homepage = 'https://github.com/UNO-IGDA/sprite_work'
   spec.license = 'GPL-3.0'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
