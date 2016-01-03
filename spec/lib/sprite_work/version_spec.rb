@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'sprite_work/version'
 
 module SpriteWork
   RSpec.describe '::VERSION' do
