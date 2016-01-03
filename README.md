@@ -33,9 +33,9 @@ Bug reports and pull requests are welcome on GitHub at [https://github.com/UNO-I
 
 ## Contributing
 1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
+2. Create your feature branch (we do [Git Flow branching style](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)): `git checkout -b feature/../..`
 3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
+4. Push to the branch: `git push origin feature/../..`
 5. Submit a pull request :D
 
 ## History
