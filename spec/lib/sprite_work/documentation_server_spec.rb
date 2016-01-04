@@ -26,7 +26,66 @@ module SpriteWork
     describe '#pid' do
       subject(:pid) { documentation_server.pid }
 
-      it('is a Fixnum') { is_expected.to be_a Fixnum }
+      context 'when the server is running' do
+        let(:new_pid) { Faker::Number.number(2) }
+
+        before :example do
+          allow(Process).to receive(:spawn).and_return(new_pid)
+          allow(Process).to receive(:detach).with(new_pid)
+          documentation_server.start
+        end
+
+        it 'is the id of the running server process' do
+          is_expected.to eq new_pid
+        end
+      end
+
+      context 'when the server is not running' do
+        before :example do
+          allow(Process).to receive(:kill)
+          documentation_server.stop
+        end
+
+        it('is nil') { is_expected.to be_nil }
+      end
+    end
+
+    describe '#running?' do
+      subject(:running?) { documentation_server.running? }
+
+      context 'when #pid is a Fixnum' do
+        before :example do
+          allow(documentation_server).to receive(:pid)
+            .and_return Faker::Number.number(2)
+        end
+
+        context 'when a process with a PID of #pid exists' do
+          before :example do
+            allow(Process).to receive(:kill)
+              .with(0, documentation_server.pid)
+          end
+
+          it('is true') { is_expected.to be true }
+        end
+
+        context 'when a process with a PID of #pid does not exist' do
+          before :example do
+            allow(Process).to receive(:kill)
+              .with(0, documentation_server.pid)
+              .and_raise(Errno::ESRCH, 'No such process')
+          end
+
+          it('is false') { is_expected.to be false }
+        end
+      end
+
+      context 'when #pid is nil' do
+        before :example do
+          allow(documentation_server).to receive(:pid).and_return nil
+        end
+
+        it('is false') { is_expected.to be false }
+      end
     end
 
     describe '#start' do
