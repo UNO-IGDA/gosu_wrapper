@@ -13,6 +13,16 @@ module SpriteWork
 
     it('is a Singleton') { is_expected.to be_a Singleton }
 
+    describe '.running?' do
+      subject(:running?) { described_class.running? }
+
+      it 'calls instance.running?' do
+        expect(documentation_server).to receive(:running?)
+
+        running?
+      end
+    end
+
     describe '.start' do
       subject(:start) { described_class.start }
 

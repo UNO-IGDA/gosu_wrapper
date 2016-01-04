@@ -7,6 +7,10 @@ module SpriteWork
 
     attr_accessor :pid
 
+    def self.running?
+      instance.running?
+    end
+
     def self.start
       instance.start
     end
