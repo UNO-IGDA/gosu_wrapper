@@ -15,6 +15,10 @@ module SpriteWork
       instance.start
     end
 
+    def self.stop
+      instance.stop
+    end
+
     def running?
       return false unless pid
       Process.kill(0, pid)

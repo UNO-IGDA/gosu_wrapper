@@ -33,6 +33,16 @@ module SpriteWork
       end
     end
 
+    describe '.stop' do
+      subject(:stop) { described_class.stop }
+
+      it 'calls instance.stop' do
+        expect(documentation_server).to receive(:stop)
+
+        stop
+      end
+    end
+
     describe '#pid' do
       subject(:pid) { documentation_server.pid }
 
