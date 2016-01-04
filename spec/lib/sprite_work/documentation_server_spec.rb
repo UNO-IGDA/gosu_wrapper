@@ -49,5 +49,16 @@ module SpriteWork
         expect { start }.to change { documentation_server.pid }.to pid
       end
     end
+
+    describe '#stop' do
+      subject(:stop) { documentation_server.stop }
+
+      it 'kills the server process with "INT" signal' do
+        expect(Process).to receive(:kill)
+          .with('INT', documentation_server.pid)
+
+        stop
+      end
+    end
   end
 end

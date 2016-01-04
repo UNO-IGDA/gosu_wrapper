@@ -15,5 +15,9 @@ module SpriteWork
       @pid = Process.spawn('yard server --reload')
       Process.detach(pid)
     end
+
+    def stop
+      Process.kill('INT', pid)
+    end
   end
 end
