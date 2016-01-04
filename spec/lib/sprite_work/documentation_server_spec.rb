@@ -23,6 +23,12 @@ module SpriteWork
       end
     end
 
+    describe '#pid' do
+      subject(:pid) { documentation_server.pid }
+
+      it('is a Fixnum') { is_expected.to be_a Fixnum }
+    end
+
     describe '#start' do
       subject(:start) { documentation_server.start }
       let(:pid) { Faker::Number.number(2) }
