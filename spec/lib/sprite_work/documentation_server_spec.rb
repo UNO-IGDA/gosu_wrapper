@@ -112,11 +112,45 @@ module SpriteWork
     describe '#stop' do
       subject(:stop) { documentation_server.stop }
 
-      it 'kills the server process with "INT" signal' do
-        expect(Process).to receive(:kill)
-          .with('INT', documentation_server.pid)
+      context 'when the server is not running' do
+        before :example do
+          allow(documentation_server).to receive(:running?)
+            .and_return false
+        end
 
-        stop
+        it 'does not attempt to kill a process' do
+          expect(Process).not_to receive(:kill)
+
+          stop
+        end
+
+        it 'does not attempt to delete #pid' do
+          expect { stop }.not_to change { documentation_server.pid }
+        end
+      end
+
+      context 'when the server is running' do
+        let(:new_pid) { Faker::Number.number(2) }
+
+        before :example do
+          allow(Process).to receive(:spawn).and_return(new_pid)
+          allow(Process).to receive(:detach).with(new_pid)
+          documentation_server.start
+          allow(documentation_server).to receive(:running?).and_return true
+        end
+
+        it 'kills the server process with "INT" signal' do
+          expect(Process).to receive(:kill)
+            .with('INT', documentation_server.pid)
+
+          stop
+        end
+
+        it 'deletes #pid' do
+          allow(Process).to receive(:kill)
+
+          expect { stop }.to change { documentation_server.pid }.to nil
+        end
       end
     end
   end

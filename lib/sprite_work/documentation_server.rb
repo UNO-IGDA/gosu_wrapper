@@ -25,7 +25,9 @@ module SpriteWork
     end
 
     def stop
+      return unless running?
       Process.kill('INT', pid)
+      @pid = nil
     end
   end
 end
